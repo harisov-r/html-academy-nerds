@@ -1,5 +1,5 @@
 /*-------------------------------------------------*/
-/* ДЛЯ ВСЕГО ДОКУМЕНТА
+/* ДЛЯ ВСЕГО ДОКУМЕНТА                             */
 /*-------------------------------------------------*/
 
 /*Шрифт:*/
@@ -33,10 +33,12 @@
 }
 /*--------------------------------------*/
 
-body {
+* {
     margin: 0;
     padding: 0;
+}
 
+body {
     /* самый часто встречающийся шрифт пишем в body*/
     font-family: "Roboto", Arial, sans-serif;
     font-size: 16px;
@@ -55,7 +57,6 @@ a {
     text-decoration: none; /*ссылка - без подчеркивания*/
 }
 
-
 .button {
     font-family: "Roboto", Arial, sans-serif;
     font-size: 16px;
@@ -69,18 +70,44 @@ a {
 
     background-color: black; /*#fb565a;*/
     border: none;
+
+    padding: 16px 40px;
 }
 
-.button-main {
+.button-features {
+    display: block; /* иначе не воспринимает размеры */
+    box-sizing: border-box;
+    width: 240px;
+    height: 50px;
+    margin-top: 39px;
     background-color: #fb565a;
 }
 
-.button-main:hover,
-.button-main:focus {
+.button-features:hover,
+.button-features:focus {
     background-color: #e74246;
 }
 
-.button-main:active {
+.button-features:active {
+    background-color: #d7373b;
+}
+
+
+.button-first {
+    display: block; /* иначе не воспринимает размеры */
+    box-sizing: border-box;
+    width: 160px;
+    height: 50px;
+    margin-top: 32px;
+    background-color: #fb565a;
+}
+
+.button-first:hover,
+.button-first:focus {
+    background-color: #e74246;
+}
+
+.button-first:active {
     background-color: #d7373b;
 }
 
@@ -88,6 +115,11 @@ a {
 
 .button-second {
     background-color: #00ca74;
+    display: block; /* иначе не воспринимает размеры */
+    box-sizing: border-box;
+    width: 160px;
+    height: 50px;
+    margin-top: 32px;
 }
 
 .button-second:hover,
@@ -103,6 +135,11 @@ a {
 
 .button-third {
     background-color: #efc849;
+    display: block; /* иначе не воспринимает размеры */
+    box-sizing: border-box;
+    width: 160px;
+    height: 50px;
+    margin-top: 32px;
 }
 
 .button-third:hover,
@@ -120,7 +157,6 @@ a {
     margin-right: auto;
     padding-left: 10px;
     padding-right: 10px;
-    /*border: 0 1px dashed red;*/
 }
 
 li {
@@ -129,11 +165,11 @@ li {
 
 
 /*-------------------------------------------------*/
-/* HEADER
+/* HEADER                                          */
 /*-------------------------------------------------*/
 
 .first-header {
-    padding-top: 50px;
+    padding-top: 40px;
     min-width: 1180px;
     background-color: #eeeeee;
 }
@@ -146,25 +182,61 @@ li {
 
 .first-header-navigation-wrapper {
     display: flex;
+    /*border: 1px solid brown;*/
 }
 
 .site-navigation,
 .purchase-navigation {
     list-style: none; /*убрали маркер у списка (точечку)*/
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .site-navigation {
-    width: 450px;
-    padding: 0;
-    margin-left: 200px;
-    /*margin-right: 240px;*/
+    width: 550px;
+    padding-top: 10px;
+    margin-left: 202px;
+}
+
+.site-navigation li {
+    margin-right: 46px;
+    margin-top: 16px;
+}
+
+.site-navigation li:last-child {
+    margin-right: 0;
 }
 
 
 .purchase-navigation {
     margin-left: auto;
+    padding-top: 10px;
+}
+
+.purchase-navigation li {
+    margin-top: 16px;
+}
+
+.cart {
+    position: relative;
+}
+
+/* псевдо-элемент */
+.cart::before {
+    content: ""; /* чтобы псевдо-элемент отрисовался */
+
+    position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
+    top: 2px;
+    left: -40px;
+
+    width: 15px;
+    height: 15px;
+
+    background-image: url("../img/cart-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+
+    /*opacity: 0.3; /* прозрачность */
 }
 
 .site-navigation a,
@@ -186,19 +258,17 @@ li {
 }
 
 /*-------------------------------------------------*/
-/* end of HEADER
+/* end of HEADER                                   */
 /*-------------------------------------------------*/
 
 /*-------------------------------------------------*/
-/* MAIN
+/* MAIN                                            */
 /*-------------------------------------------------*/
 
 /*---- секция features ----*/
 
 .features {
     background-color: #eeeeee;
-    margin: 0;
-    padding: 0;
     min-width: 1180px;
     margin-bottom: 80px;
 }
@@ -207,19 +277,26 @@ li {
     display: flex;
 }
 
-.slogan-1 {
+.features-column2 {
+    margin-left: 55px;
+    padding-top: 8px;
+}
+
+.features-column2 img {
+    display: block;
+}
+
+.slogan-expensive {
+    margin-bottom: 26px;
+    padding-top: 68px;
+
+
     font-weight: 500;
     font-size: 55px;
     line-height: 55px;
     color: #000000;
 }
 
-.slogan-2 {
-    font-weight: 500;
-    font-size: 45px;
-    line-height: 45px;
-    color: #000000;
-}
 
 
 
@@ -227,17 +304,11 @@ li {
 /*---- секция services ----*/
 
 .services {
-    margin: 0;
-    padding: 0;
     min-width: 1180px;
-    margin-bottom: 80px;
 }
-
 
 .services-list {
     list-style: none; /*убрали маркер у списка (точечку)*/
-    margin: 0;
-    padding: 0;
     display: flex;
 }
 
@@ -256,36 +327,66 @@ li {
     color: #000000;
     font-weight: 700;
     text-transform: uppercase;
+    margin-top: 18px;
+}
+
+.service-description {
+    margin-top: 16px;
 }
 
 /*---- секция About ----*/
 
 .about {
-    margin: 0;
-    padding: 0;
+    margin-top: 100px;
     min-width: 1180px;
-    margin-bottom: 80px;
+
 }
 
 .about-columns {
+    position: relative;
     display: flex;
+    /*border: 1px solid cyan;*/
 }
 
-.about-column:nth-child(2) {
-    margin-left: auto;
+.about-columns::before { /* длинная горизонтальная линия */
+    content: ""; /* чтобы псевдо-элемент отрисовался */
+    position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
+    top: -20px;
+    left: -5px;
+    width: 1160px;
+    height: 2px;
+    background-color: #cccccc;
+
+}
+
+.about-column1 {
+    margin-top: 56px;
+    width: 670px;
+    flex-shrink: 0;
+}
+
+.about-column2 {
+    margin-left: 130px;
+    margin-top: 22px;
+}
+
+
+.about-picture {
+    display: block;
+    padding-left: 0;
 }
 
 .indicators {
-    margin: 0;
-    padding: 0;
     display: flex;
+    margin-top: 58px;
+    margin-left: 3px;
 }
 
 .indicators li {
     margin-right: 20px;
 }
 
-.indicators li:nth-child(3) { /*у третьего элемента сбрасываем правую границу (отступ)*/
+.indicators li:nth-child(3n) { /*у третьего элемента сбрасываем правую границу (отступ)*/
     margin-right: 0;
 }
 
@@ -296,43 +397,137 @@ li {
     font-weight: 700;
 }
 
-.slogan-3 {
-    font-weight: 500;
+.indicators-item-description {
+    margin-top: 34px;
+/*    margin-left: 10px;*/
     font-size: 16px;
-    line-height: 24px;
-    color: #000000;
-    text-transform: uppercase;
+    line-height: 18px;
 }
 
-.slogan-4 {
+.slogan-krasnodar {
+    font-weight: 500;
+    font-size: 45px;
+    line-height: 45px;
+    color: #000000;
+}
+
+.slogan-robot {
+    margin-top: 34px;
+}
+
+.slogan-development {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    text-transform: uppercase;
+    margin-top: 38px;
+}
+
+.development  {
+    margin-top: 24px;
+}
+
+.development li {
+    margin-left: 36px;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.development li:last-child {
+    margin-left: 36px;
+    margin-bottom: 0;
+}
+
+.development li::before {
+    content: ""; /* чтобы псевдо-элемент отрисовался */
+    position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
+    top: 11px;
+    left: -35px;
+    width: 25px;
+    height: 2px;
+    background-color: #fb565a;
+}
+
+
+
+.slogan-2004year {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
     color: #000000;
     text-transform: uppercase;
-    text-align: center;
+    margin-top: 36px;
+    margin-left: 20px;
 }
 
 .examples {
-    margin: 0;
-    padding: 0;
     height: 180px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    margin-top: 81px;
+    padding-left: 32px;
+    position: relative;
+}
+
+.examples::before {
+    content: ""; /* чтобы псевдо-элемент отрисовался */
+    position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
+    top: -9px;
+    left: 0;
+    width: 1160px;
+    height: 2px;
+    background-color: #cccccc;
+}
+
+.examples::after {
+    content: ""; /* чтобы псевдо-элемент отрисовался */
+    position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
+    top: 174px;
+    left: 0;
+    width: 1160px;
+    height: 2px;
+    background-color: #cccccc;
 
 }
+
+
+
+.examples-item {
+    margin-right: 95px;
+    position: relative;
+}
+
+.examples-item:last-child {
+    margin-right: 0;
+}
+
+.examples-item::after {
+    content: ""; /* чтобы псевдо-элемент отрисовался */
+    position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
+    top: 20px;
+    left: 240px;
+    width: 2px;
+    height: 50px;
+    background-color: #cccccc;
+
+}
+
 
 /*---- окончание секции About ----*/
 
 /*-------------------------------------------------*/
-/* end of MAIN
+/* end of MAIN                                     */
 /*-------------------------------------------------*/
 
 
 /*-------------------------------------------------*/
-/* FOOTER
+/* FOOTER                                          */
 /*-------------------------------------------------*/
+
+.first-footer {
+    margin-top: 74px;
+}
 
 .backgound-map {
     box-sizing: border-box;
@@ -349,18 +544,31 @@ li {
     width: 319px;
     height: 308px;
     padding-left: 50px;
-    padding-top: 55px;
+    padding-top: 50px;
     background-color: #ffffff;
 }
 
 .footer-contacts p {
-    margin: 0;
-    padding: 0;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 }
 
+.button-write-us {
+    display: block; /* иначе не воспринимает размеры */
+    box-sizing: border-box;
+    width: 219px;
+    height: 50px;
+    margin-top: 36px;
+    background-color: #fb565a;
+}
 
+.button-write-us:hover,
+.button-write-us:focus {
+    background-color: #e74246;
+}
 
+.button-write-us:active {
+    background-color: #d7373b;
+}
 
 .contact-header {
     font-size: 18px;
@@ -377,19 +585,23 @@ li {
     font-weight: 400;
 }
 
+.contact-address {
+    margin-top: 22px;
+}
 
+.contact-phone {
+    margin-top: 18px;
+}
 
 .footer-social-columns {
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box;
     height: 225px;
+    padding-top: 70px;
     display: flex;
-    align-items: center;
 }
 
 .footer-social-column {
-    margin: 0;
-    padding: 0;
+    /*border: 1px solid yellow;*/
 }
 
 .footer-social-column:nth-child(1) {
@@ -397,10 +609,38 @@ li {
 
 }
 
+.social-item {
+    margin-right: 12px;
+}
+
+.social-item:last-child {
+    margin-right: 0;
+}
+
+.social-button {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%; /* закругляем */
+
+    display: flex; /* чтобы отцентрировать ровно посередине круга svg-изображение */
+    align-items: center;
+    justify-content: center;
+    background-color: #e1e1e1;
+}
+
+.social-button:hover,
+.social-button:focus {
+    background-color: #ffffff;
+}
+
+.social-button:hover path,
+.social-button:focus path {
+    fill: #000000; /* так как svg - это вставленный прямо в html страницу тег, у него есть подтег fill мы его меняем здесь */
+}
+
 .footer-social ul {
-    margin: 0;
-    padding: 0;
     display: flex;
+    width: 265px;
 }
 
 .footer-social li{
@@ -412,9 +652,7 @@ li {
     line-height: 36px;
     color: #000000;
     font-weight: 700;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 10px;
+    margin-top: 7px;
 }
 
 .social-discount {
@@ -422,19 +660,15 @@ li {
     line-height: 22px;
     color: #444444;
     font-weight: 400;
-    margin: 0;
-    padding: 0;
+    margin-top: 8px;
 }
 
-
-
 /*-------------------------------------------------------------*/
-/* Стиль для внутренних страниц*/
+/* Стиль для внутренних страниц                                */
 /*-------------------------------------------------------------*/
 
 .page-title {
     box-sizing: border-box;
-    margin: 0;
     margin-bottom: 60px;
     padding-top: 70px;
     min-width: 1180px;
@@ -458,10 +692,7 @@ li {
 
 .filters fieldset {
     border: none;
-    margin: 0;
-    padding: 0;
     margin-bottom: 40px;
-    /*border: 1px dashed green;*/
 }
 
 .filters legend {
@@ -473,8 +704,6 @@ li {
 
 .filters ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
 
 }
 
@@ -504,8 +733,6 @@ opacity: 0.5;
 
 .catalog-list {
     width: 760px;
-    margin: 0;
-    padding: 0;
     display: flex;
 
     flex-wrap: wrap;
@@ -524,9 +751,7 @@ opacity: 0.5;
 .pagination-list {
     width: 440px;
     display: flex;
-    margin: 0;
     margin-bottom: 60px;
-    padding: 0;
 
 }
 
