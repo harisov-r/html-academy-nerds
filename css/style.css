@@ -72,6 +72,7 @@ a {
     border: none;
 
     padding: 16px 40px;
+    border-radius: 3px;
 }
 
 .button-features {
@@ -271,25 +272,119 @@ li {
     background-color: #eeeeee;
     min-width: 1180px;
     margin-bottom: 80px;
+    /* border: 1px solid red; */
 }
 
-.features-columns {
-    display: flex;
+
+
+/*.slide-columns {*/
+    /*display: flex;*/
+/*}*/
+
+/*.slide-column2 {*/
+    /*margin-left: 55px;*/
+    /*padding-top: 8px;*/
+/*}*/
+
+/*.slide-column2 img {*/
+    /*display: block;*/
+/*}*/
+
+.slider {
+    position: relative;
+    height: 420px;
 }
 
-.features-column2 {
-    margin-left: 55px;
-    padding-top: 8px;
+.slider-controls {
+    position: absolute;
+    bottom: 102px;
+    width: 200px;
+    height: 10px;
+    left: 50%;
+    margin-left: -100px;
+    text-align: center;
+    z-index: 1000;
 }
 
-.features-column2 img {
+.slider-controls label {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
+    margin: 0 7px;
+    background: #ffffff;
+    border: 5px solid #ffffff;
+    border-radius: 50%;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+#slider-selector-button1:checked ~ .slider-controls label[for="slider-selector-button1"],
+#slider-selector-button2:checked ~ .slider-controls label[for="slider-selector-button2"],
+#slider-selector-button3:checked ~ .slider-controls label[for="slider-selector-button3"] {
+    background: #c1c1c1;
+}
+
+.slide {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden; /* чтобы вылезающще за пределы не отображалось*/
+    width: 100%;
+    height: 100%;
+}
+
+.slide-title {
+    margin-top: 68px;
+    font-size: 55px;
+    line-height: 55px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.slide-text {
+    margin-top: 26px;
+    color: #283136;
+}
+
+.slide:nth-child(1) {
+    /* изображения слайдера 1 делаем фоном */
+    background-image: url("../img/slide1.png");
+    background-repeat: no-repeat;
+    background-position: 93% 9px; /* прижат вправо на 93%, сверху 10px */
+}
+
+.slide:nth-child(2) {
+    /* изображения слайдера 2 делаем фоном */
+    background-image: url("../img/slide2.png");
+    background-repeat: no-repeat;
+    background-position: 100% 9px; /* прижат вправо на 93%, сверху 10px */
+}
+
+.slide:nth-child(3) {
+    /* изображения слайдера 2 делаем фоном */
+    background-image: url("../img/slide3.png");
+    background-repeat: no-repeat;
+    background-position: 100% 9px; /* прижат вправо на 93%, сверху 10px */
+}
+
+#slider-selector-button1:checked ~ .slides .slide:nth-child(1) {
+    /* для тильды нужно, чтобы теги имели одного родителя поэтому используется .slides */
+    display: block;
+}
+
+#slider-selector-button2:checked ~ .slides .slide:nth-child(2) {
+    display: block;
+}
+
+#slider-selector-button3:checked ~ .slides .slide:nth-child(3) {
     display: block;
 }
 
 .slogan-expensive {
     margin-bottom: 26px;
-    padding-top: 68px;
-
+    /*padding-top: 68px;*/
 
     font-weight: 500;
     font-size: 55px;
