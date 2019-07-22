@@ -739,12 +739,11 @@ li {
 
 .social-button:hover,
 .social-button:focus {
-    background-color: #ffffff;
+    background-color: #e74246;
 }
 
-.social-button:hover path,
-.social-button:focus path {
-    fill: #000000; /* так как svg - это вставленный прямо в html страницу тег, у него есть подтег fill мы его меняем здесь */
+.social-button:active path {
+    fill: #e37376; /* так как svg - это вставленный прямо в html страницу тег, у него есть подтег fill мы его меняем здесь */
 }
 
 .footer-social ul {
