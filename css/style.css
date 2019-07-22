@@ -335,6 +335,7 @@ li {
     height: 100%;
 }
 
+
 .slide-title {
     margin-top: 68px;
     font-size: 55px;
@@ -473,7 +474,7 @@ li {
 
 .indicators {
     display: flex;
-    margin-top: 58px;
+    margin-top: 40px;
     margin-left: 3px;
 }
 
@@ -487,14 +488,19 @@ li {
 
 .percent-number {
     font-size: 45px;
-    line-height: 10px;
+    line-height: 45px;
     color: #000000;
     font-weight: 700;
 }
 
+.percent-number sup {
+    font-size: 26px;
+    line-height: 26px;
+}
+
+
 .indicators-item-description {
-    margin-top: 34px;
-/*    margin-left: 10px;*/
+    margin-top: 20px;
     font-size: 16px;
     line-height: 18px;
 }
@@ -559,55 +565,63 @@ li {
 .examples {
     height: 180px;
     display: flex;
-    align-items: center;
+    padding: 0;
+    margin: 0;
     margin-top: 81px;
-    padding-left: 32px;
+    margin-left: -20px;
     position: relative;
+    align-items: center;
+
 }
 
 .examples::before {
     content: ""; /* чтобы псевдо-элемент отрисовался */
     position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
-    top: -9px;
-    left: 0;
+    top: -7px;
+    left: 21px;
     width: 1160px;
     height: 2px;
-    background-color: #cccccc;
+    background-color: #eeeeee;
 }
 
 .examples::after {
     content: ""; /* чтобы псевдо-элемент отрисовался */
     position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
-    top: 174px;
-    left: 0;
+    top: 175px;
+    left: 21px;
     width: 1160px;
     height: 2px;
-    background-color: #cccccc;
+    background-color: #eeeeee;
 
 }
 
+.examples-item a {
+    display: block;
+    width: 300px;
+    text-align: center;
 
-
-.examples-item {
-    margin-right: 95px;
-    position: relative;
+    opacity: 0.2;
 }
 
-.examples-item:last-child {
-    margin-right: 0;
-}
 
-.examples-item::after {
+.examples-item:not(:first-child)::before {
     content: ""; /* чтобы псевдо-элемент отрисовался */
     position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
-    top: 20px;
-    left: 240px;
-    width: 2px;
-    height: 50px;
-    background-color: #cccccc;
-
+    top: 60px;
+    height: 52px;
+    padding: 0px;
+    margin: 0px;
+    border-right: 2px solid #eeeeee;
 }
 
+.examples-item a:hover,
+.examples-item a:focus {
+    opacity: 1;
+}
+
+.examples-item a:active {
+    opacity: 0.1;
+}
 
 /*---- окончание секции About ----*/
 
