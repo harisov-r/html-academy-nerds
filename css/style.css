@@ -91,6 +91,7 @@ a {
 
 .button-features:active {
     background-color: #d7373b;
+    color: #e37376;
 }
 
 
@@ -110,6 +111,7 @@ a {
 
 .button-first:active {
     background-color: #d7373b;
+    color: #e37376;
 }
 
 /*--------------------------------------------*/
@@ -130,6 +132,7 @@ a {
 
 .button-second:active {
     background-color: #00aa62;
+    color: #4dc491;
 }
 
 /*--------------------------------------------*/
@@ -150,6 +153,7 @@ a {
 
 .button-third:active {
     background-color: #e5a722;
+    color: #edc265;
 }
 
 .centraler { /*доп.контейнер для центрирования ("центровщик")*/
@@ -173,17 +177,18 @@ li {
     padding-top: 40px;
     min-width: 1180px;
     background-color: #eeeeee;
+    /*border: 1px solid brown;*/
 }
 
 .first-header-navigation {
     font-size: 16px;
     line-height: 30px;
     color: #000000;
+    /*border: 1px solid brown;*/
 }
 
 .first-header-navigation-wrapper {
     display: flex;
-    /*border: 1px solid brown;*/
 }
 
 .site-navigation,
@@ -197,11 +202,13 @@ li {
     width: 550px;
     padding-top: 10px;
     margin-left: 202px;
+    /*border: 1px solid brown;*/
 }
 
 .site-navigation li {
     margin-right: 46px;
     margin-top: 16px;
+    /*border: 1px solid red;*/
 }
 
 .site-navigation li:last-child {
@@ -255,8 +262,20 @@ li {
 }
 
 .site-navigation-current {
-    text-decoration: underline; /*ссылка - c подчеркиванием*/
+    position: relative;
 }
+
+.site-navigation-current::after {
+     content: "";
+
+     position: absolute; /* absolute делает любой элемент как-бы блочным, и элемент начинает воспринимать размеры */
+     top: 33px;
+     height: 2px; /* высотой 5px */
+     left: 0; /* хитрый трюк - width не задаем, поэтому черточка на всю ширину родителя */
+     right: 0;
+
+     background-color: #fb565a;
+ }
 
 /*-------------------------------------------------*/
 /* end of HEADER                                   */
@@ -644,7 +663,7 @@ li {
     min-width: 1180px;
     padding-top: 55px;
     background-color: #eeeeee;
-    background-image:  url("../img/map.jpg");
+    background-image:  url("../img/map2.jpg");
 
 }
 
@@ -677,6 +696,7 @@ li {
 
 .button-write-us:active {
     background-color: #d7373b;
+    color: #e37376;
 }
 
 .contact-header {
@@ -769,6 +789,158 @@ li {
     color: #444444;
     font-weight: 400;
     margin-top: 8px;
+}
+
+
+/*-------------------------------------------------------------*/
+/* Модальное окно Напишите нам                                */
+/*-------------------------------------------------------------*/
+
+.modal {
+    position: fixed;
+    color: #000000;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7); /* тень */
+    display: none; /* отключу показ */
+}
+
+.modal-write-us {
+    box-sizing: border-box;
+    /*top: 20px;*/
+    top: 50%;
+    left: 50%;
+    width: 960px;
+    height: 590px;
+    padding: 68px 98px;
+    margin-left: -480px; /* 960 : 2 = 480 */
+    margin-top: -295px; /* 590 : 2 = 295 */
+    z-index : 1000;
+    background-color: #ffffff;
+}
+
+.modal-write-us-show {
+    display: block;
+}
+
+.write-us-title {
+    font-size: 45px;
+    line-height: 45px;
+    color: #000000;
+    font-weight: 500;
+}
+
+.write-us-columns {
+    display: flex;
+    margin-top: 41px;
+    margin-left: 2px;
+}
+
+.input-user-mail {
+    margin-left: 40px;
+}
+
+.input-user-text {
+    margin-top: 34px;
+    margin-left: 2px;
+}
+
+.write-us-label {
+    display: block;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 700;
+}
+
+.write-us-input {
+    display: block;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 400;
+    border: 2px solid #d7dcde;
+    border-radius: 3px;
+    outline: none;
+}
+
+.write-us-input::-webkit-input-placeholder {
+    color: #444444;
+    opacity: 0.5;
+}
+
+.write-us-input::-moz-placeholder {
+    color: #444444;
+    opacity: 0.5;
+}
+
+.write-us-input:hover {
+    border: 2px solid #b4b9bb;
+}
+
+.write-us-input:focus {
+    border: 2px solid #000000;
+    color: #444444;
+    opacity: 1;
+}
+
+.write-us-form-user,
+.write-us-form-mail {
+    box-sizing: border-box;
+    width: 360px;
+    height: 50px;
+    margin-top: 10px;
+    padding: 0 12px;
+}
+
+.write-us-form-text {
+    box-sizing: border-box;
+    width: 760px;
+    height: 118px;
+    margin-top: 8px;
+    resize: none; /* чтобы уголок увеличения размера не отображался */
+    padding: 12px 12px;
+}
+
+.write-us-form-submit {
+    margin-top: 46px;
+    margin-left: 2px;
+    width: 260px;
+    background-color: #fb565a;
+}
+
+.write-us-form-submit:hover,
+.write-us-form-submit:focus {
+    background-color: #e74246;
+}
+
+.write-us-form-submit:active {
+    background-color: #d7373b;
+    color: #e37376;
+}
+
+.modal-close { /* крестик закрытия модального окна из svg */
+    position: absolute;
+
+    top: 78px;
+    right: 90px;
+    width: 21px;
+    height: 21px;
+
+    background-color: #ffffff;
+    background-image: url("../img/close-cross.svg"); /* крестик */
+    background-repeat: no-repeat;
+    background-position: 0 0;
+
+    cursor: pointer; /* курсор мышки превращаем в руку */
+    border: 0; /* у кнопки убираем рамку */
+    font-size: 0;
+    opacity: 0.3;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    opacity: 1;
+}
+
+.modal-close:active {
+    opacity: 0.1;
 }
 
 /*-------------------------------------------------------------*/

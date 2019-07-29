@@ -18,12 +18,12 @@
 
                     <ul class="site-navigation">
                         <li class="site-navigation-current"><a href="#">Студия</a></li>
-                        <li><a href="#">Клиенты</a></li>
-                        <li><a href="#">Магазин</a></li>
-                        <li><a href="#">Контакты</a></li>
+                        <li class="site-navigation-current"><a href="#">Клиенты</a></li>
+                        <li class="site-navigation-current"><a href="#">Магазин</a></li>
+                        <li class="site-navigation-current"><a href="#">Контакты</a></li>
                     </ul>
                     <ul class="purchase-navigation">
-                        <li><a class="cart" href="#">Корзина</a></li>
+                        <li><a class="cart site-navigation-current" href="#">Корзина</a></li>
                     </ul>
                 </div>
             </div>
@@ -170,7 +170,7 @@
                     <p class="contact-header">NЁRDS DESIGN STUDIO</p>
                     <p class="contact-address">191186, Санкт-Петербург,<br>ул. Б. Конюшенная, д. 19/8</p>
                     <p class="contact-phone">тел. +7 (812) 275-75-75</p>
-                    <a class="button button-write-us" href="#">Напишите нам</a>
+                    <a class="button button-write-us" href="https://echo.htmlacademy.ru">Напишите нам</a>
                 </div>
             </div>
         </div>
@@ -207,5 +207,31 @@
             </div>
         </div>
     </footer>
+
+    <section class="modal modal-write-us">
+        <h2 class="write-us-title">Напишите нам</h2>
+        <form class="write-us-form" action="https://echo.htmlacademy.ru" method="post">
+            <div class="write-us-columns">
+                <p class="input-user-name">
+                    <label for="user-name" class="write-us-label">Ваше имя:</label>
+                    <input class="write-us-input write-us-form-user" id="user-name" type="text" name="name"
+                           placeholder="Представьтесь, пожалуйста">
+                </p>
+                <p  class="input-user-mail">
+                    <label for="user-mail" class="write-us-label">Ваш e-mail:</label>
+                    <input class="write-us-input write-us-form-mail" id="user-mail" type="text" name="mail"
+                           placeholder="Для отправки ответа">
+                </p>
+            </div>
+            <p  class="input-user-text">
+                <label for="user-text" class="write-us-label">Текст письма:</label>
+                <textarea class="write-us-input write-us-form-text" id="user-text" type="text" name="text" placeholder="В свободной форме"></textarea>
+            </p>
+            <button class="button write-us-form-submit" type="submit">ОТПРАВИТЬ</button>
+        </form>
+        <button class="modal-close write-us-close-button" type="button">Закрыть</button>
+    </section>
+
+    <script src="js/write-us-popup.js"></script>
 </body>
 </html>
