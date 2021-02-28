@@ -1,0 +1,67 @@
+
+/*-----------------------------------------*/
+/* специальный класс для скрытия элементов */
+/*-----------------------------------------*/
+.visually-hidden {
+    /* Удаляем элемент из потока документа */
+    position: absolute;
+    /* Временное решение для неверно произносимого, размазанного текста */
+    white-space: nowrap;
+    /* Устанавливаем минимально возможный размер (некоторые скринридеры игнорируют элементы с нулевой высотой и шириной) */
+    width: 1px;
+    height: 1px;
+    /* Скрываем вылезающий за границы контент */
+    overflow: hidden;
+    /* Сбрасываем любые свойства, которые могут повлиять на размер элемента */
+    border: 0;
+    padding: 0;
+    /* Вырезаем ту часть контента, которая должна отображаться. */
+    /* Устаревшее свойство clip для старых браузеров */
+    clip: rect(0 0 0 0);
+    /* clip-path для новых браузеров. inset(50%) определяет область вставки, которая позволит контенту исчезнуть.  */
+    clip-path: inset(50%);
+    /* Похоже, никто до конца не понимает, почему тут margin: -1px. Кроме того, это приводит к проблемам (читай: https://github.com/h5bp/html5-boilerplate/issues/1985). */
+    margin: -1px;
+}
+/*--------------------------------------*/
+
+
+.filters-option {
+    list-style: none; /*убрали маркер у списка (точечку)*/
+}
+
+.input-radio-title {
+    display: block;
+    position: relative;
+}
+
+.input-radio-title::before { /* пустой кружок*/
+    content: "";
+    position: absolute;
+
+    top: -2px;
+    left: -35px;
+
+    width: 25px;
+    height: 25px;
+
+    background-image: url("../img/radio-off.svg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.input-radio:checked + .input-radio-title::after { /* для радио-баттонов, у которого установлена точка, выводим рисунок с черным кружком внутри   */
+    content: "";
+    position: absolute;
+
+    top: -2px;
+    left: -35px;
+
+    width: 25px;
+    height: 25px;
+
+    background-image: url("../img/radio-on.svg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+
+}
